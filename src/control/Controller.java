@@ -15,46 +15,72 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable
 {
+    /**
+     * input text field
+     */
     @FXML
     private TextField inputText;
     @FXML
+    /**
+     * button used for coding message into Morse code
+     */
     private Button codeBtn;
+    /**
+     * button used for decoding message into Polish
+     */
     @FXML
     private Button decodeBtn;
+    /**
+     * output text field
+     */
     @FXML
     private Label outputText;
 
-
+    /**
+     * Instance of Coder Class
+     */
     private Coder coder = new Coder();
+    /**
+     * Instance of Decoder Class
+     */
     private Decoder decoder = new Decoder();
 
+    /**
+     * Referencing buttons to the handler method
+     */
     @Override
-    public void initialize(URL location, ResourceBundle resources)
+    public void initialize(URL location, ResourceBundle resources)  //
     {
         codeBtn.setOnAction(this::translateToMorse);
         decodeBtn.setOnAction(this::translateToPolish);
     }
 
+    /**
+     * Coding button handler
+     */
     private void translateToMorse(ActionEvent event)
     {
         String output;
         try
         {
             output = coder.code(inputText.getText());
-        } catch(DictionaryException e)
+        } catch (DictionaryException e)
         {
             output = e.getMessage();
         }
         this.outputText.setText("Wynik translacji: " + output);
     }
 
+    /**
+     * Decoding button handler
+     */
     private void translateToPolish(ActionEvent event)
     {
         String output;
         try
         {
             output = decoder.decode(inputText.getText());
-        }catch(DictionaryException e)
+        } catch (DictionaryException e)
         {
             output = e.getMessage();
         }

@@ -5,6 +5,9 @@ import java.util.Map;
 
 public class Coder
 {
+    /**
+     * Field for holding codes
+     */
     private Map<String, String> dictionary;
 
     public Coder()
@@ -39,6 +42,9 @@ public class Coder
         dictionary.put("z", "--** ");
     }
 
+    /**
+     * Coding single letter
+     */
     private String getCode(String character) throws DictionaryException
     {
         if(this.dictionary.get(character.toLowerCase()) == null)
@@ -46,6 +52,9 @@ public class Coder
         return this.dictionary.get(character.toLowerCase());
     }
 
+    /**
+     * Coding input string
+     */
     public String code(String input) throws DictionaryException
     {
         String output = "";

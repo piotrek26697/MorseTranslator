@@ -5,6 +5,9 @@ import java.util.Map;
 
 public class Decoder
 {
+    /**
+     * Field for holding codes
+     */
     private Map<String, String> dictionary;
 
     public Decoder()
@@ -39,34 +42,40 @@ public class Decoder
         dictionary.put("--**", "z");
     }
 
+    /**
+     * Decoding single letter
+     */
     private String getCode(String character) throws DictionaryException
     {
-        if(this.dictionary.get(character.toLowerCase()) == null)
+        if (this.dictionary.get(character.toLowerCase()) == null)
             throw new DictionaryException("No data to translate");
         return this.dictionary.get(character.toLowerCase());
     }
 
+    /**
+     * Decoding input string
+     */
     public String decode(String input) throws DictionaryException
     {
         input += "  ";
         String output = "";
         String letter = "";
         int i = 0;
-        while(i < input.length() - 1)
+        while (i < input.length() - 1)
         {
-            if(input.charAt(i) == ' ' && input.charAt(i + 1) == ' ')    //new word
+            if (input.charAt(i) == ' ' && input.charAt(i + 1) == ' ')    //new word
             {
                 try
                 {
                     output += getCode(letter);
-                } catch(DictionaryException e)
+                } catch (DictionaryException e)
                 {
                     throw e;
                 }
                 letter = "";
                 output += " ";
                 i++;
-            } else if(input.charAt(i) != ' ')   //coding single character
+            } else if (input.charAt(i) != ' ')   //coding single character
             {
                 letter += Character.toString(input.charAt(i));
 
@@ -75,7 +84,7 @@ public class Decoder
                 try
                 {
                     output += getCode(letter);
-                } catch(DictionaryException e)
+                } catch (DictionaryException e)
                 {
                     throw e;
                 }
