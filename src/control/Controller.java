@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.Coder;
 import model.Decoder;
+import model.DictionaryException;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -36,13 +37,27 @@ public class Controller implements Initializable
 
     private void translateToMorse(ActionEvent event)
     {
-        String output = coder.code(inputText.getText());
+        String output;
+        try
+        {
+            output = coder.code(inputText.getText());
+        } catch(DictionaryException e)
+        {
+            output = e.getMessage();
+        }
         this.outputText.setText("Wynik translacji: " + output);
     }
 
     private void translateToPolish(ActionEvent event)
     {
-        String output = decoder.decode(inputText.getText());
+        String output;
+        try
+        {
+            output = decoder.decode(inputText.getText());
+        }catch(DictionaryException e)
+        {
+            output = e.getMessage();
+        }
         this.outputText.setText("Wynik translacji: " + output);
     }
 }

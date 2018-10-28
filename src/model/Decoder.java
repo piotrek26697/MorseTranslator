@@ -39,33 +39,47 @@ public class Decoder
         dictionary.put("--**", "z");
     }
 
-    private String getCode(String character)
+    private String getCode(String character) throws DictionaryException
     {
+        if(this.dictionary.get(character.toLowerCase()) == null)
+            throw new DictionaryException("No data to translate");
         return this.dictionary.get(character.toLowerCase());
     }
 
-    public String decode(String input)
+    public String decode(String input) throws DictionaryException
     {
         input += "  ";
         String output = "";
-        String temp = "";
+        String letter = "";
         int i = 0;
         while(i < input.length() - 1)
         {
-            if(input.charAt(i) == ' ' && input.charAt(i + 1) == ' ')    //nowe słowo
+            if(input.charAt(i) == ' ' && input.charAt(i + 1) == ' ')    //new word
             {
-                output += getCode(temp);
-                temp = "";
+                try
+                {
+                    output += getCode(letter);
+                } catch(DictionaryException e)
+                {
+                    throw e;
+                }
+                letter = "";
                 output += " ";
                 i++;
-            } else if(input.charAt(i) != ' ')   //kodowanie pojedynczej litery
+            } else if(input.charAt(i) != ' ')   //coding single character
             {
-                temp += Character.toString(input.charAt(i));
+                letter += Character.toString(input.charAt(i));
 
-            } else      //kolejna litera
+            } else      //next letter
             {
-                output += getCode(temp);
-                temp = "";
+                try
+                {
+                    output += getCode(letter);
+                } catch(DictionaryException e)
+                {
+                    throw e;
+                }
+                letter = "";
             }
 
             i++;

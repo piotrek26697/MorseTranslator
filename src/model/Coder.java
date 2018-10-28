@@ -39,18 +39,27 @@ public class Coder
         dictionary.put("z", "--** ");
     }
 
-    private String getCode(String character)
+    private String getCode(String character) throws DictionaryException
     {
+        if(this.dictionary.get(character.toLowerCase()) == null)
+            throw new DictionaryException("No data to translate");
         return this.dictionary.get(character.toLowerCase());
     }
 
-    public String code(String input)
+    public String code(String input) throws DictionaryException
     {
         String output = "";
         for(int i = 0; i < input.length(); i++)
         {
             String character = Character.toString(input.charAt(i));
-            output += this.getCode(character);
+            try
+            {
+                output += this.getCode(character);
+            }
+            catch(DictionaryException e)
+            {
+                throw e;
+            }
         }
         return output;
     }
