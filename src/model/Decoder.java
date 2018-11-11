@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Class objects decode Morse Code
  * @author Piotr Musioł
  * @version 1.1
  */

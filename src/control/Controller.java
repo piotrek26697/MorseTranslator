@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
+ * Class object controls flow of data between Model and View
  * @author Piotr Musioł
  * @version 1.0
  */

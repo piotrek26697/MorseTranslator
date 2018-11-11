@@ -17,7 +17,7 @@ public class Main extends Application
     /**
      * Setting up application
      * @param primaryStage Stage class is the top level JavaFX container.
-     * @throws Exception
+     * @throws Exception various exceptions that can be thrown by class stage objects
      */
 
     @Override
@@ -30,7 +30,7 @@ public class Main extends Application
     }
 
     /**
-     * @param args command line arguments that are not used
+     * @param args command line arguments that are not used because it's not a console program
      */
 
     public static void main(String[] args)
