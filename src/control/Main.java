@@ -6,8 +6,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Morse Translator
+ * @author Piotr Musioł
+ * @version 1.0
+ */
+
 public class Main extends Application
 {
+    /**
+     * Setting up application
+     * @param primaryStage
+     * @throws Exception
+     */
 
     @Override
     public void start(Stage primaryStage) throws Exception
@@ -18,6 +29,9 @@ public class Main extends Application
         primaryStage.show();
     }
 
+    /**
+     * @param args command line arguments that are not used because it's not a console program
+     */
 
     public static void main(String[] args)
     {

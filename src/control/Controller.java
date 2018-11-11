@@ -13,6 +13,11 @@ import model.DictionaryException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * @author Piotr Musioł
+ * @version 1.0
+ */
+
 public class Controller implements Initializable
 {
     /**
@@ -47,6 +52,8 @@ public class Controller implements Initializable
 
     /**
      * Referencing buttons to the handler method
+     * @param location
+     * @param resources
      */
     @Override
     public void initialize(URL location, ResourceBundle resources)  //
@@ -57,6 +64,7 @@ public class Controller implements Initializable
 
     /**
      * Coding button handler
+     * @param event
      */
     private void translateToMorse(ActionEvent event)
     {
@@ -72,7 +80,8 @@ public class Controller implements Initializable
     }
 
     /**
-     * Decoding button handler
+     *Decoding button handler
+     * @param event
      */
     private void translateToPolish(ActionEvent event)
     {

@@ -3,6 +3,10 @@ package model;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Piotr Musioł
+ * @version 1.0
+ */
 public class Coder
 {
     /**
@@ -10,6 +14,9 @@ public class Coder
      */
     private Map<String, String> dictionary;
 
+    /**
+     * Constructor
+     */
     public Coder()
     {
         this.dictionary = new HashMap<String, String>();
@@ -44,31 +51,31 @@ public class Coder
 
     /**
      * Coding single letter
+     * @param character Letter to code
+     * @return Morse code of a single letter
+     * @throws DictionaryException Incorrect input symbol
      */
     private String getCode(String character) throws DictionaryException
     {
-        if(this.dictionary.get(character.toLowerCase()) == null)
+        if (this.dictionary.get(character.toLowerCase()) == null)
             throw new DictionaryException("No data to translate");
         return this.dictionary.get(character.toLowerCase());
     }
 
     /**
      * Coding input string
+     * @param input input text
+     * @return Coded input text
+     * @throws DictionaryException Incorrect input symbol
      */
     public String code(String input) throws DictionaryException
     {
         String output = "";
-        for(int i = 0; i < input.length(); i++)
+        for (int i = 0; i < input.length(); i++)
         {
             String character = Character.toString(input.charAt(i));
-            try
-            {
-                output += this.getCode(character);
-            }
-            catch(DictionaryException e)
-            {
-                throw e;
-            }
+            output += this.getCode(character);
+
         }
         return output;
     }

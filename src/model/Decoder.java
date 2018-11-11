@@ -3,6 +3,10 @@ package model;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Piotr Musioł
+ * @version 1.0
+ */
 public class Decoder
 {
     /**
@@ -10,6 +14,9 @@ public class Decoder
      */
     private Map<String, String> dictionary;
 
+    /**
+     * Constructor
+     */
     public Decoder()
     {
         dictionary = new HashMap<String, String>();
@@ -44,6 +51,9 @@ public class Decoder
 
     /**
      * Decoding single letter
+     * @param character Morse Code representing single letter
+     * @return translated character from Morse Code
+     * @throws DictionaryException Incorrect input symbol
      */
     private String getCode(String character) throws DictionaryException
     {
@@ -54,6 +64,9 @@ public class Decoder
 
     /**
      * Decoding input string
+     * @param input input text
+     * @return Translated text from Morse Code
+     * @throws DictionaryException Incorrect input symbol
      */
     public String decode(String input) throws DictionaryException
     {
@@ -65,13 +78,7 @@ public class Decoder
         {
             if (input.charAt(i) == ' ' && input.charAt(i + 1) == ' ')    //new word
             {
-                try
-                {
-                    output += getCode(letter);
-                } catch (DictionaryException e)
-                {
-                    throw e;
-                }
+                output += getCode(letter);
                 letter = "";
                 output += " ";
                 i++;
