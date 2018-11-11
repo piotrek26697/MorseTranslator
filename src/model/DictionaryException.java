@@ -4,14 +4,10 @@ package model;
 /**
  * Exception caused by entering incorrect values
  * @author Piotr Musioł
- * @version 1.0
+ * @version 1.1
  */
 public class DictionaryException extends Exception
 {
-    DictionaryException()
-    {
-    }
-
     /**
      * Constructor
      * @param message Information about exception

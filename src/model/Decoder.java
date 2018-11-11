@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * @author Piotr Musioł
- * @version 1.0
+ * @version 1.1
  */
 public class Decoder
 {
@@ -51,6 +51,7 @@ public class Decoder
 
     /**
      * Decoding single letter
+     *
      * @param character Morse Code representing single letter
      * @return translated character from Morse Code
      * @throws DictionaryException Incorrect input symbol
@@ -88,13 +89,7 @@ public class Decoder
 
             } else      //next letter
             {
-                try
-                {
-                    output += getCode(letter);
-                } catch (DictionaryException e)
-                {
-                    throw e;
-                }
+                output += getCode(letter);
                 letter = "";
             }
 

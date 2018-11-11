@@ -52,8 +52,8 @@ public class Controller implements Initializable
 
     /**
      * Referencing buttons to the handler method
-     * @param location
-     * @param resources
+     * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null if the root object was not localized.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources)  //
@@ -64,7 +64,7 @@ public class Controller implements Initializable
 
     /**
      * Coding button handler
-     * @param event
+     * @param event An Event representing some type of action.
      */
     private void translateToMorse(ActionEvent event)
     {
@@ -81,7 +81,7 @@ public class Controller implements Initializable
 
     /**
      *Decoding button handler
-     * @param event
+     * @param event An Event representing some type of action.
      */
     private void translateToPolish(ActionEvent event)
     {
