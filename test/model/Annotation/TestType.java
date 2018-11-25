@@ -4,6 +4,12 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 
+/**
+ * TestType interface. The annotation consists of the internal enumeration and an attribute.
+ *
+ * @author Piotr Musioł
+ * @version 1.0
+ */
 @Documented
 @Target(ElementType.METHOD)
 public @interface TestType
