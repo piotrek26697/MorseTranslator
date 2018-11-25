@@ -74,4 +74,17 @@ public class CoderTest
     {
         coder.code("-,!/?.");
     }
+
+    @TestType(method = TestType.Method.FAIL_MESSAGE)
+    @Test
+    public void noInputTest()
+    {
+        try
+        {
+            coder.code(null);
+        } catch (Exception e)
+        {
+            fail("Exception shouldn't be thrown\n" + e.getMessage());
+        }
+    }
 }

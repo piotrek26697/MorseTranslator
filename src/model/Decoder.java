@@ -5,8 +5,9 @@ import java.util.Map;
 
 /**
  * Class objects decode Morse Code
+ *
  * @author Piotr Musioł
- * @version 1.1
+ * @version 2.0
  */
 public class Decoder
 {
@@ -66,12 +67,15 @@ public class Decoder
 
     /**
      * Decoding input string
+     *
      * @param input input text
      * @return Translated text from Morse Code
      * @throws DictionaryException Incorrect input symbol
      */
     public String decode(String input) throws DictionaryException
     {
+        if (input == null)
+            return "";
         input += "  ";
         String output = "";
         String letter = "";

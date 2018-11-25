@@ -62,4 +62,16 @@ public class DecoderTest
     {
         decoder.decode(".!,/?");
     }
+    @TestType(method = TestType.Method.FAIL_MESSAGE)
+    @Test
+    public void noInputTest()
+    {
+        try
+        {
+            decoder.decode(null);
+        } catch (Exception e)
+        {
+            fail("Exception shouldn't be thrown\n" + e.getMessage());
+        }
+    }
 }

@@ -74,6 +74,9 @@ public class Coder
      */
     public String code(String input) throws DictionaryException
     {
+        if (input == null)
+            return "";
+
         String output = "";
 //        for (int i = 0; i < input.length(); i++)
 //        {
