@@ -7,7 +7,7 @@ import java.util.Map;
  * Class objects code text into Morse Code
  *
  * @author Piotr Musioł
- * @version 1.1
+ * @version 2.0
  */
 public class Coder
 {
