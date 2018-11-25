@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * Class objects code text into Morse Code
+ *
  * @author Piotr Musioł
  * @version 1.1
  */
@@ -52,6 +53,7 @@ public class Coder
 
     /**
      * Coding single letter
+     *
      * @param character Letter to code
      * @return Morse code of a single letter
      * @throws DictionaryException Incorrect input symbol
@@ -65,6 +67,7 @@ public class Coder
 
     /**
      * Coding input string
+     *
      * @param input input text
      * @return Coded input text
      * @throws DictionaryException Incorrect input symbol
@@ -72,12 +75,19 @@ public class Coder
     public String code(String input) throws DictionaryException
     {
         String output = "";
-        for (int i = 0; i < input.length(); i++)
-        {
-            String character = Character.toString(input.charAt(i));
-            output += this.getCode(character);
+//        for (int i = 0; i < input.length(); i++)
+//        {
+//            String character = Character.toString(input.charAt(i));
+//            output += this.getCode(character);
+//        }
 
+        char[] inputTable = input.toCharArray();
+        for (char i : inputTable)
+        {
+            String character = Character.toString(i);
+            output += this.getCode(character);
         }
+
         return output;
     }
 }
